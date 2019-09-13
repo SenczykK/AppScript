@@ -1,5 +1,5 @@
 //var ss = SpreadsheetApp.openByUrl("https://docs.google.com/spreadsheets/d/1LfJvFPXWBxKdN8EF3GhjmbdCu8cDIpSirHSa7qzUu5I/edit#gid=0");
-var ss = SpreadsheetApp.openByUrl("https://docs.google.com/spreadsheets/d/e/2PACX-1vQyD9WA_BzBLNOWhPGIHVGY7lVLcqKbyOmAipimrdqbuSQ6nUaXmr3MGu-2rCm3YzscdFkb9OTC2v0w/pubhtml");
+var ss = SpreadsheetApp.openByUrl("https://docs.google.com/spreadsheets/d/1LfJvFPXWBxKdN8EF3GhjmbdCu8cDIpSirHSa7qzUu5I/edit?usp=sharing");
 // First function on webpage
 function doGet(){
 
