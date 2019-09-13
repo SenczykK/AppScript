@@ -1,0 +1,69 @@
+<script>
+      document.getElementById("sendButton1").addEventListener("click", function(){
+         
+         if( checkValidationInput("name") && checkValidationInput("surname"))
+         {
+         google.script.run.sendData(
+         document.getElementById("name").value, 
+         document.getElementById("surname").value);
+         document.getElementById("name").value = "";
+         document.getElementById("surname").value = "";
+         }
+      });
+
+      function checkValidationInput(itemId){
+         if(document.getElementById(itemId).value == "") return false;
+      
+         return true;
+      }
+       
+      document.getElementById("startSearching").addEventListener("click", function(){
+         google.script.run.withSuccessHandler(updateInput).searchData(document.getElementById("searchIn").value);
+      });
+
+      function updateInput(data){
+         document.getElementById("searchOut").value = data;
+      }
+
+      /* ------------ Table made by HTML code String
+      document.getElementById("odczytOpcjeButton").addEventListener("click", function(){
+         google.script.run.withSuccessHandler(setTableP).loadOptions();
+      });
+      
+      function setTableP(data){
+         document.getElementById("readOpcjeTable").innerHTML = data;
+      } --------- Table made by HTML code String */
+
+      document.getElementById("odczytOpcjeButton").addEventListener("click", function(){
+         
+         google.script.run.withSuccessHandler(setTableVariable).loadOptions();
+         
+         
+         
+      });
+
+      function setTableVariable(data){
+            
+            var tableBody = document.getElementById("readOpcjeTable");
+            
+            data.forEach(e => {
+               var row = document.createElement("tr");
+               var col1 = document.createElement("td"), col2 = document.createElement("td");
+               
+               col1.textContent = e[0]; col2.textContent = e[1];
+               row.appendChild(col1);
+               row.appendChild(col2);
+
+               tableBody.appendChild(row);
+            });
+            
+      }
+      /* --- TODO: Przejscia miedzy stronami
+      document.getElementById("page2").onclick = runHTML;
+      
+      function runHTML( task){
+         return HTMLLinkElement.runHTML("GET /"+task+".html");
+      } ----------------------*/
+
+      
+</script>
